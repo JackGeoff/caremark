@@ -971,7 +971,15 @@ html {
   color: var(--primary);
   font-weight: bold;
 }
-
+select{
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid rgba(45, 157, 120, 0.2);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
 
 /* Doctors Section */
 .doctors-section {
