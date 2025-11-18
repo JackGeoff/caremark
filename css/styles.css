@@ -800,7 +800,7 @@ html {
 .page-hero {
      position: relative;
   padding: 100px 0 60px;
-  background: url("../assets/page-header.png");
+  background: url("../assets/page-header.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
