@@ -1443,7 +1443,7 @@ select{
 
 @media (max-width: 480px) {
     .hero-slider {
-        height: 500px;
+        /* height: 500px; */
     }
     .hero-content {
         text-align: center;
