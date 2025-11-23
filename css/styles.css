@@ -230,6 +230,69 @@ html {
     gap: 1rem;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dropdown {
+        width: 100%;
+    }
+
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        min-width: auto;
+    }
+
+    .dropdown-content a {
+        padding-left: 20px;
+    }
+
+    /* Assuming mobile menu is toggled, add this if needed */
+    .nav-links.active .dropdown-content {
+        display: block;
+    }
+}
+
 .mobile-menu-btn {
     display: none;
     background: none;
@@ -512,6 +575,13 @@ html {
     border-radius: 1rem;
     padding: 1.5rem;
     transition: var(--transition-smooth);
+    display: flex;
+flex-direction: column;
+justify-content: space-between;
+height: 100%; 
+}
+.service-card .btn {
+margin-top: auto;
 }
 
 .service-card:hover {
@@ -920,16 +990,24 @@ html {
 
 .services-detail-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
   gap: 30px;
 }
 
 .service-detail-card {
+  display: flex;
   padding: 30px;
   background: white;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   transition: all 0.3s ease;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.service-detail-card .btn {
+  margin-top: auto;
+  align-self: center;
 }
 
 .service-detail-card:hover {
@@ -952,25 +1030,6 @@ html {
   color: var(--muted-foreground);
   margin-bottom: 20px;
 }
-
-.service-list {
-  list-style: none;
-}
-
-.service-list li {
-  padding: 8px 0;
-  padding-left: 20px;
-  position: relative;
-  color: var(--muted-foreground);
-}
-
-.service-list li:before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--primary);
-  font-weight: bold;
-}
 select{
   width: 100%;
   padding: 12px 15px;
@@ -979,69 +1038,6 @@ select{
   font-family: inherit;
   font-size: 14px;
   transition: all 0.3s ease;
-}
-
-/* Doctors Section */
-.doctors-section {
-  padding: 80px 0;
-}
-
-.doctors-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.doctor-card {
-  background: white;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  padding: 20px;
-}
-
-.doctor-card:hover {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  transform: translateY(-5px);
-}
-
-.doctor-image {
-  overflow: hidden;
-  height: 256px;
-}
-
-.doctor-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.doctor-card:hover .doctor-image img {
-  transform: scale(1.1);
-}
-
-.doctor-card > div:not(.doctor-image) {
-  padding: 25px;
-}
-
-.doctor-card h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: var(--foreground);
-}
-
-.doctor-card .specialty {
-  color: var(--primary);
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-.doctor-card .experience {
-  font-size: 14px;
-  color: var(--muted-foreground);
-  margin-bottom: 20px;
 }
 
 /* Contact Section */
@@ -1224,7 +1220,70 @@ select{
   }
 }
 
+.section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            transition: transform 0.3s ease;
+            flex-direction: row-reverse;
+            height: 100vh;
+        }
+        .section:hover {
+            transform: scale(1.05);
+        }
+        .text {
+            flex: 1;
+            padding: 20px;
+        }
+        .image {
+            flex: 1;
+            padding: 20px;
+        }
+        .image img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .small-title {
+            color: var(--primary-dark);
+            font-size: 1.2em;
+        }
+        .main-title {
+            font-size: 2.5em;
+            margin: 10px 0;
+        }
+        .description {
+            color: var(--primary-dark);
+            font-size: 1em;
+        }
+        @media (max-width: 768px) {
+            .section{
+                padding: 20px;
+            }
+        .image img {
+            width: 300px;
+            height: 224px;
+        }
 
+        }
+        @media (max-width: 480px) {
+            .section {
+                flex-direction: column;
+            }
+            .image {
+                order: -1;
+            }
+            .main-title {
+                font-size: 2em;
+            }
+             .image img {
+            width: 300px;
+            height: 224px;
+        }
+        }
 
 
 
